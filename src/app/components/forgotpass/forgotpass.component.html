@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h1>Forgot password</h1>
+  
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+    <form [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email" formControlName="email">
+      </div>
+    
+      <button class="btn btn-dark" [disabled]="!forgotForm.valid">Submit</button>
+    </form>
+
+    <div class="success" *ngIf="showSucessMessage">
+      Update password link Sent to Email
+    </div>
+    
+    <!-- Error message -->
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+

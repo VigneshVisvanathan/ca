@@ -1,0 +1,16 @@
+<div *ngIf="currentFileUpload" class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+    aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+    {{progress.percentage}}%</div>
+</div>
+
+<div class="uploadfilecontainer" (click)="fileInput.click()" appDragndrop (onFileDropped)="uploadFile($event)">
+    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+  </div>
+  <div  class="files-list" *ngFor="let file of files;let i= index">
+      <p> {{ file }} </p>
+      <button class="btn btn-success"  (click)="upload()">Upload</button>
+      <button class="delete-file" (click)="deleteAttachment(i)">
+        <img src="../../../assets/Recycle_Bin_Full.png">
+      </button>
+   </div>
